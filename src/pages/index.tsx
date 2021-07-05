@@ -1,4 +1,7 @@
+import { Box } from "@chakra-ui/react";
 import Head from "next/head";
+import { BannerHome } from "../components/BannerHome";
+import { Header } from "../components/Header";
 export default function Home() {
   return (
     <>
@@ -6,9 +9,11 @@ export default function Home() {
         <title>Home</title>
       </Head>
 
-      <main>
+      <Header />
+      <Box as="main" pt="5rem">
+        <BannerHome />
         <h1>Home</h1>
-      </main>
+      </Box>
     </>
   );
 }
