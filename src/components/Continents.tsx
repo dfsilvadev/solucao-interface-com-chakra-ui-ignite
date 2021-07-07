@@ -1,56 +1,24 @@
 import { Box, Flex, Stack, Text } from "@chakra-ui/react";
+import { GetStaticProps } from "next";
+import { api } from "../services/api";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css";
-import "swiper/components/navigation/navigation.min.css";
+import { ConstinentsSlide } from "../components/ContinentsSlide";
+import { useEffect, useState } from "react";
 
-import SwiperCore, { Pagination, Navigation } from "swiper/core";
-import React from "react";
-import { ConstinentsSlide } from "./ContinentsSlide";
-
-SwiperCore.use([Pagination, Navigation]);
-
-const continents = [
-  {
-    id: 1,
-    name: "Europa",
-    description: "O continente mais antigo.",
-    bg_url: "./continents/europe.png",
-  },
-  {
-    id: 1,
-    name: "Asia",
-    description: "Lorem Ipsum",
-    bg_url: "./continents/asia.png",
-  },
-  {
-    id: 1,
-    name: "América do sul",
-    description: "Lorem Ipsum",
-    bg_url: "./continents/south_america.png",
-  },
-  {
-    id: 1,
-    name: "América do norte",
-    description: "Lorem Ipsum",
-    bg_url: "./continents/north_america.png",
-  },
-  {
-    id: 1,
-    name: "Africa",
-    description: "Lorem Ipsum",
-    bg_url: "./continents/africa.png",
-  },
-  {
-    id: 1,
-    name: "oceania",
-    description: "Lorem Ipsum",
-    bg_url: "./continents/oceania.png",
-  },
-];
+type Continents = {
+  id: number;
+  name: string;
+  description: string;
+  bg_url: string;
+};
 
 export function Continents() {
+  const [continents, setContinents] = useState<Continents[]>([]);
+
+  useEffect(() => {
+    api.get("continents").then((response) => setContinents(response.data));
+  }, []);
+
   return (
     <Box>
       <Flex
