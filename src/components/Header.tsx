@@ -4,7 +4,14 @@ import { RiArrowLeftSLine } from "react-icons/ri";
 export function Header() {
   return (
     <Box bg="#fff" position="fixed" w="100%" top="0">
-      <Flex w="100%" maxWidth={1160} marginX="auto" h="5rem" align="center">
+      <Flex
+        w="100%"
+        maxWidth={1160}
+        marginX="auto"
+        h="5rem"
+        align="center"
+        paddingX="6"
+      >
         <Icon as={RiArrowLeftSLine} fontSize="28" />
         <Flex flex="1" align="center" justify="center">
           <Image

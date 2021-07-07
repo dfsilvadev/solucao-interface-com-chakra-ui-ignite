@@ -31,6 +31,12 @@
 .swiper-button-next,
 .swiper-button-prev {
   color: #ffba08 !important;
+
+  &::after {
+    @media (max-width: 479px) {
+      font-size: 2rem !important;
+    }
+  }
 }
 .swiper-pagination-bullet {
   background: #fff !important;

@@ -1,7 +1,19 @@
-import { Box, Flex, Grid, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Grid,
+  Image,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import React from "react";
 
 export function TravelTypes() {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
     <Box>
       <Grid
@@ -9,39 +21,85 @@ export function TravelTypes() {
         maxWidth={1160}
         marginX="auto"
         paddingY="16"
-        templateColumns="repeat(5, 1fr)"
+        paddingX="6"
+        templateColumns={["repeat(2, 1fr)", "repeat(5, 1fr)"]}
         gap={6}
       >
-        <Grid align="center" gap="1.5">
-          <Image src="cocktail.svg" />
-          <Text fontSize="24" fontWeight="600" color="#47585b">
+        <Flex
+          align="center"
+          justify="center"
+          direction={["row", "column", "column"]}
+        >
+          <Image
+            marginRight={["2", "0", "0"]}
+            src={isWideVersion ? "cocktail.svg" : "ellipse.svg"}
+            alt="Vida Noturna"
+            title=" Taça de drink"
+          />
+          <Text fontSize={["18", "24", "24"]} fontWeight="600" color="#47585b">
             vida noturna
           </Text>
-        </Grid>
-        <Grid align="center" gap="1.5">
-          <Image src="beach.svg" />
-          <Text fontSize="24" fontWeight="600" color="#47585b">
+        </Flex>
+        <Flex
+          align="center"
+          justify="center"
+          direction={["row", "column", "column"]}
+        >
+          <Image
+            marginRight={["2", "0", "0"]}
+            src={isWideVersion ? "beach.svg" : "ellipse.svg"}
+            alt="Praia"
+            title="Imagem de uma prança de surf e sol"
+          />
+          <Text fontSize={["18", "24", "24"]} fontWeight="600" color="#47585b">
             praia
           </Text>
-        </Grid>
-        <Grid align="center" gap="1.5">
-          <Image src="building.svg" />
-          <Text fontSize="24" fontWeight="600" color="#47585b">
+        </Flex>
+        <Flex
+          align="center"
+          justify="center"
+          direction={["row", "column", "column"]}
+        >
+          <Image
+            marginRight={["2", "0", "0"]}
+            src={isWideVersion ? "building.svg" : "ellipse.svg"}
+            alt="Moderno"
+            title="Imagem de um edifício"
+          />
+          <Text fontSize={["18", "24", "24"]} fontWeight="600" color="#47585b">
             moderno
           </Text>
-        </Grid>
-        <Grid align="center" gap="1.5">
-          <Image src="museum.svg" />
-          <Text fontSize="24" fontWeight="600" color="#47585b">
+        </Flex>
+        <Flex
+          align="center"
+          justify="center"
+          direction={["row", "column", "column"]}
+        >
+          <Image
+            marginRight={["2", "0", "0"]}
+            src={isWideVersion ? "museum.svg" : "ellipse.svg"}
+            alt="Clássico"
+            title="Imagem de uma construção grega"
+          />
+          <Text fontSize={["18", "24", "24"]} fontWeight="600" color="#47585b">
             clássico
           </Text>
-        </Grid>
-        <Grid align="center" gap="1.5">
-          <Image src="earth.svg" />
-          <Text fontSize="24" fontWeight="600" color="#47585b">
+        </Flex>
+        <Flex
+          align="center"
+          justify="center"
+          direction={["row", "column", "column"]}
+        >
+          <Image
+            marginRight={["2", "0", "0"]}
+            src={isWideVersion ? "earth.svg" : "ellipse.svg"}
+            alt="E mais..."
+            title="Imagem do globo terreste"
+          />
+          <Text fontSize={["18", "24", "24"]} fontWeight="600" color="#47585b">
             e mais...
           </Text>
-        </Grid>
+        </Flex>
       </Grid>
     </Box>
   );
