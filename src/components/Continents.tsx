@@ -1,23 +1,9 @@
 import { Box, Flex, Stack, Text } from "@chakra-ui/react";
-import { GetStaticProps } from "next";
-import { api } from "../services/api";
-
-import { ConstinentsSlide } from "../components/ContinentsSlide";
-import { useEffect, useState } from "react";
-
-type Continents = {
-  id: number;
-  name: string;
-  description: string;
-  bg_url: string;
-};
+import useTravelDestination from "../hooks/useTravelDestination";
+import { ConstinentsSlide } from "./ContinentsSlide";
 
 export function Continents() {
-  const [continents, setContinents] = useState<Continents[]>([]);
-
-  useEffect(() => {
-    api.get("continents").then((response) => setContinents(response.data));
-  }, []);
+  const { continents } = useTravelDestination();
 
   return (
     <Box>
