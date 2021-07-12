@@ -1,4 +1,5 @@
 import { Box, Flex, Stack, Text } from "@chakra-ui/react";
+import Link, { LinkProps } from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -51,13 +52,16 @@ export function ConstinentsSlide({ continents }: ConstinentsSlideProps) {
                   justify="center"
                 >
                   <Stack spacing="2">
-                    <Text
-                      fontSize={["24", "36", "48"]}
-                      fontWeight="700"
-                      color="#fff"
-                    >
-                      {item.name}
-                    </Text>
+                    <Link href={item.name.toLocaleLowerCase()} passHref>
+                      <Text
+                        fontSize={["24", "36", "48"]}
+                        fontWeight="700"
+                        color="#fff"
+                        cursor="pointer"
+                      >
+                        {item.name}
+                      </Text>
+                    </Link>
                     <Text
                       fontSize={["14", "18", "24"]}
                       fontWeight="700"
